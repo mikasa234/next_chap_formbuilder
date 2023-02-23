@@ -30,7 +30,6 @@ class ResponsesController < ApplicationController
     data_json = result_hash.to_json
 
     param_new_hash = {}
-    #test
     param_new_hash['user_id'] = 2
     param_new_hash['data'] = result_hash
     param_new_hash['title'] = session[:title]

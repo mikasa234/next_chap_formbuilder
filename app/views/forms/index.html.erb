@@ -1,14 +1,29 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Forms</h1>
-
+<h1>All Forms</h1>
 <div id="forms">
-  <% @forms.each do |form| %>
-    <%= form.title %>
-    <p>
-      <%= link_to "Show this form", form %>
-    </p>
-  <% end %>
-</div>
+<table style="border: 1px solid black;">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Fields</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @forms.each do |form| %>
+      <tr>
+        <td><%= form.title %></td>
+        <td>
+          <ul>
+            <% form.data.each do |key, value| %>
+              <li><a href="<%= "" %>"><%= key %></a></li>
+            <% end %>
+          </ul>
+        </td>
 
-<%= link_to "New form", new_form_path %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<%= link_to "Create New form", new_form_path %>
