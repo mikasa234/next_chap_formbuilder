@@ -1,0 +1,6 @@
+<%= form_tag "/forms/store_labels", method: "post" do %>
+  <%= label_tag :label_count, "How many labels do you want to add?" %>
+  <%= number_field_tag :label_count, nil, in: 1..10 %>
+  <%= submit_tag "Create Form" %>
+<% end %>
+

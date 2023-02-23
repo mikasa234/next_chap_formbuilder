@@ -1,0 +1,7 @@
+<%= form_tag "/forms/submit", method: "post" do %>
+  <% @labels.each do |label| %>
+    <%= label_tag label, label %>
+    <%= text_field_tag label %>z
+  <% end %>
+  <%= submit_tag "Submit" %>
+<% end %>

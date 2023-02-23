@@ -1,0 +1,10 @@
+<%= form_tag "/fields/show_labels", method: "post" do |f| %>
+  <%= label_tag(:title, 'Title:') %>
+  <%= text_field_tag(:title) %>
+  <% session[:labels].each do |label| %>
+    <%= label_tag label, label %>
+
+    <%= text_field_tag label %>
+  <% end %>
+  <%= submit_tag "Add Fields" %>
+<% end %>

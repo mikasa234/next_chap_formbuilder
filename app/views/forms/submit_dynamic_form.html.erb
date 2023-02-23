@@ -1,0 +1,7 @@
+<%= form_with url: { action: "submit_dynamic_form" }, method: :post do |form| %>
+  <% @input_labels.each do |label| %>
+    <%= form.label label %>
+    <%= form.text_field label.downcase.gsub(" ", "_").to_sym %>
+  <% end %>
+  <%= form.submit %>
+<% end %>

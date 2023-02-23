@@ -1,0 +1,7 @@
+<%= form_tag form_submission_path, method: :post do %>
+  <% session[:input_fields].each do |label| %>
+    <%= label_tag label.to_sym, label %>
+    <%= text_field_tag label.to_sym %>
+  <% end %>
+  <%= submit_tag "Add Fields" %>
+<% end %>   

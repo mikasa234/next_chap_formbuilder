@@ -1,0 +1,5 @@
+<%= form_tag "/forms/create", method: :get do %>
+  <%= label_tag :number_of_fields, "How many Fields do you want to add?" %>
+  <%= number_field_tag :number_of_fields, nil, in: 1..10 %>
+  <%= submit_tag "Confirm" %>
+<% end %>
