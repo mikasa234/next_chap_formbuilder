@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_23_010545) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_23_175530) do
   create_table "fields", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -26,11 +26,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_23_010545) do
   end
 
   create_table "responses", force: :cascade do |t|
+    t.json "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "form_id", null: false
-    t.text "data"
-    t.index ["form_id"], name: "index_responses_on_form_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,5 +38,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_23_010545) do
   end
 
   add_foreign_key "forms", "users"
-  add_foreign_key "responses", "forms"
 end

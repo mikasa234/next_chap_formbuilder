@@ -30,28 +30,11 @@ class FormsController < ApplicationController
       session[:labels] << "Field #{i+1}"
     end
     @labels = session[:labels]
-    p @labels
     redirect_to '/fields/new'
   end
 
   # POST /forms or /forms.json
   def create
-
-    # redirect_to controller: "forms_controller", action: "input"
-    # format.json { render :input, location: @form }
-    
-
-    # @form = Form.new(form_params)
-
-    #respond_to do |format|
-      # # if @form.save
-      # #   format.html { redirect_to form_url(@form), notice: "Form was successfully created." }
-      # #   format.json { render :show, status: :created, location: @form }
-      # # else
-      # #   format.html { render :new, status: :unprocessable_entity }
-      # #   format.json { render json: @form.errors, status: :unprocessable_entity }
-      # end
-    # end
   end
 
   # PATCH/PUT /forms/1 or /forms/1.json

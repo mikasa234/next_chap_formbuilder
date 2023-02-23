@@ -22,45 +22,33 @@ class ResponsesController < ApplicationController
 
   # POST /responses or /responses.json
   def create
+
+    #create a form with title and user_id
+    # @Form = Form.create()
+
+
     result_hash = {}
     session[:label_values].each do |label|
       result_hash[label] = params[label]
       params.delete(label)
     end
     data_json = result_hash.to_json
-    params['data'] = result_hash
-    # params['user_id'] = 2
-    params['title'] = session[:title]
+
+    param_new_hash = {}
+    #test
+    param_new_hash['user_id'] = 2
+    param_new_hash['data'] = result_hash
+    param_new_hash['title'] = session[:title]
 
     Rails.logger.info("saving response")
-    Rails.logger.info(params)
+    Rails.logger.info(param_new_hash)
 
-    @response = Response.new(params)
-    # @response.data = result_hash
-
-    # @form = Form.new(params)
-    # @form.title = session[:title]
-    # @form.response = @response
-  
-    Rails.logger.info("saving the form")
+    @form = Form.create(param_new_hash)
     if @form.save
-      Rails.logger.info("form saved")
-      format.html { redirect_to response_url(@form), notice: "Response was successfully created." }
-      format.json { render :show, status: :created, location: @response }
-    else
-      Rails.logger.info("form could not be saved")
-
-    # respond_to do |format|
-    #   if @response.save
-    #     format.html { redirect_to response_url(@response), notice: "Response was successfully created." }
-    #     format.json { render :show, status: :created, location: @response }
-    #   else
-    #     Rails.logger.info("db save error!!")
-    #     Rails.logger.error(@response.errors.full_messages.join(', '))
-    #     format.html { render :new, status: :unprocessable_entity }
-    #     format.json { render json: @response.errors, status: :unprocessable_entity }
-    #   end
+      Rails.logger.info("response saved")
     end
+    redirect_to "/forms"
+
   end
 
   # PATCH/PUT /responses/1 or /responses/1.json

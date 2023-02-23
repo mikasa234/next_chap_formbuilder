@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "forms#index"
+  root "forms#new"
   post '/forms/store_labels', to: 'forms#store_labels'
   post '/fields/show_labels', to: 'fields#show_labels'
 

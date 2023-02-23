@@ -28,6 +28,7 @@ class FieldsController < ApplicationController
     end
     # Rails.logger.info("Saving form")
     # Rails.logger.info(params)
+    
     redirect_to '/responses/new'
   end
 
