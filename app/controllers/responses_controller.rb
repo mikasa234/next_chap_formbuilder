@@ -22,11 +22,6 @@ class ResponsesController < ApplicationController
 
   # POST /responses or /responses.json
   def create
-
-    #create a form with title and user_id
-    # @Form = Form.create()
-
-
     result_hash = {}
     session[:label_values].each do |label|
       result_hash[label] = params[label]

@@ -26,33 +26,12 @@ class FieldsController < ApplicationController
     session[:labels].each do |label|
       session[:label_values] << params[label]
     end
-    # Rails.logger.info("Saving form")
-    # Rails.logger.info(params)
     
     redirect_to '/responses/new'
   end
 
   # POST /fields or /fields.json
   def create
-    # Rails.logger.info("in create")
-    # Rails.logger.info(params)
-    # @field = Field.new(field_params)
-
-    # respond_to do |format|
-    #   if @field.save        
-    #     session[:label_values] = []
-    #     session[:labels].each do |label|
-    #       session[:label_values] << params[label]
-    #     end
-
-    #     # redirect_to '/responses/new'
-    #     format.html { redirect_to '/responses/new', notice: "Form was successfully created." }
-    #     format.json { render :show, status: :created, location: @field }
-    #   else
-    #     format.html { render :new, status: :unprocessable_entity }
-    #     format.json { render json: @field.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # PATCH/PUT /fields/1 or /fields/1.json
