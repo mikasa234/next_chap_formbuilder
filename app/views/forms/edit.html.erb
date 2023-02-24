@@ -1,10 +1,29 @@
-<h1>Editing form</h1>
-
-<%= render "form", form: @form %>
-
-<br>
-
-<div>
-  <%= link_to "Show this form", @form %> |
-  <%= link_to "Back to forms", forms_path %>
-</div>
+<h1>Edit form</h1>
+<table style="border: 1px solid black;">
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Response</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+    <%= form_for @form do |f| %>
+      <% @form.data.each do |key, value| %>
+      <tr>
+          <td>
+              <%= f.text_field :label, value: key %>
+          </td>
+          <td>
+              <%= f.text_field :label, value: value %>
+          </td>
+      </tr>
+      <% end %>
+      <tr> <%= f.submit "Save Changes" %></tr>
+     <% end %>
+  </tbody>
+</table>
+ 
+    <br>
+     
+<%= link_to "Back to forms", forms_path %>

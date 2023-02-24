@@ -1,6 +1,7 @@
 <%= form_for @response do |f| %>
    <% session[:label_values].each do |label| %>
     <%= f.label label%>
+    <br>
     <%= text_field_tag label %>
   <% end %>
   <%= f.submit "Add Response" %>

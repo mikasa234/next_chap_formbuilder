@@ -20,6 +20,7 @@ class FormsController < ApplicationController
 
   # GET /forms/1/edit
   def edit
+    @form = Form.find(params[:id])
   end
 
   def show_response
