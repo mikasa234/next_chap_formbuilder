@@ -1,4 +1,4 @@
 class Response < ApplicationRecord
-    serialize :data, Hash
-    belongs_to:form
+    # serialize :data, Hash
+    # belongs_to:form
 end

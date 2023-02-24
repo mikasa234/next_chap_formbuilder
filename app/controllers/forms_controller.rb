@@ -8,8 +8,6 @@ class FormsController < ApplicationController
 
   # GET /forms/1 or /forms/1.json
   def show
-    Rails.logger.info("showing response")
-    Rails.logger.info(params)
     @form = Form.find(params[:id])
   end
 
@@ -20,6 +18,7 @@ class FormsController < ApplicationController
 
   # GET /forms/1/edit
   def edit
+    Rails.logger.info("in edit")
     @form = Form.find(params[:id])
   end
 
@@ -47,14 +46,27 @@ class FormsController < ApplicationController
 
   # PATCH/PUT /forms/1 or /forms/1.json
   def update
-    respond_to do |format|
-      if @form.update(form_params)
-        format.html { redirect_to form_url(@form), notice: "Form was successfully updated." }
-        format.json { render :show, status: :ok, location: @form }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @form.errors, status: :unprocessable_entity }
-      end
+    Rails.logger.info("in update")
+    Rails.logger.info(params)
+
+    @form = Form.find(params[:id])
+    form_update_data = {}
+    params[:form].each do |key, value|
+      form_update_data[key] = value
+    end
+    Rails.logger.info(form_update_data)
+    # @form.data = form_update_data.to_json
+
+
+    Rails.logger.info(@form)
+
+    if @form.save
+      redirect_to @form
+      # format.html { redirect_to form_url(@form), notice: "Form was successfully updated." }
+      # format.json { render :show, status: :ok, location: @form }
+    else
+      format.html { render :edit, status: :unprocessable_entity }
+      format.json { render json: @form.errors, status: :unprocessable_entity }
     end
   end
 

@@ -1,8 +1,26 @@
+
+<table>
+  <thead>
+  <tr>
+    <th>Field</th>
+    <th>Response</th>
+  </tr>
+  </thead>
+<tbody>
 <%= form_for @response do |f| %>
+<tr>
    <% session[:label_values].each do |label| %>
+   <td>
     <%= f.label label%>
+    </td>
     <br>
+    <td>
     <%= text_field_tag label %>
+    </td>
+  </tr>
   <% end %>
-  <%= f.submit "Add Response" %>
+ <tr><td> <%= f.submit "Add Response" %></td></tr>
 <% end %>
+</tbody>
+</table>
+

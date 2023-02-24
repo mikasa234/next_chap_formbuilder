@@ -1,4 +1,14 @@
+<style>
+  .form-control {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
+</style>
+
 <h1>Edit form</h1>
+<div class="form-group">
 <table style="border: 1px solid black;">
   <thead>
     <tr>
@@ -8,22 +18,27 @@
   </thead>
   <tbody>
   
-    <%= form_for @form do |f| %>
+    <%= form_for @form,  url: form_path(@form), method: :patch do |f| %>
       <% @form.data.each do |key, value| %>
-      <tr>
-          <td>
-              <%= f.text_field :label, value: key %>
-          </td>
-          <td>
-              <%= f.text_field :label, value: value %>
-          </td>
-      </tr>
+        <tr>
+            <td>
+            <div>
+                <%= f.label key%>
+              </div>
+            </td>
+            <td>
+            <div>
+                <%= f.text_field key.to_sym, id: key, value: value, class: "form-control" %>
+                </div>
+            </td>
+        </tr>
       <% end %>
-      <tr> <%= f.submit "Save Changes" %></tr>
+      <tr><td> <%= f.submit "Save Changes" %></td></tr>
      <% end %>
   </tbody>
 </table>
- 
-    <br>
-     
+ </div>
+  
+ <div>    
 <%= link_to "Back to forms", forms_path %>
+</div>
