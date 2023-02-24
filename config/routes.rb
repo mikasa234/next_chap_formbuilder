@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "forms#new"
   post '/forms/store_labels', to: 'forms#store_labels'
+  # get '/forms/:id', to: 'forms#show'
   post '/fields/show_labels', to: 'fields#show_labels'
 
 end

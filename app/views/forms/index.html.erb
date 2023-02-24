@@ -7,23 +7,28 @@
     <tr>
       <th>Title</th>
       <th>Fields</th>
+      <th>Response</th>
     </tr>
   </thead>
   <tbody>
     <% @forms.each do |form| %>
       <tr>
         <td><%= form.title %></td>
+
         <td>
           <ul>
             <% form.data.each do |key, value| %>
-              <li><a href="<%= "" %>"><%= key %></a></li>
+              <li><%= key %></li>
             <% end %>
           </ul>
         </td>
-
+        <td>
+        <%= link_to 'Show Response', "/forms/#{form.id}" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 </div>
 <%= link_to "Create New form", new_form_path %>
+

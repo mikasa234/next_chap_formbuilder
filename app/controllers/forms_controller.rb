@@ -8,6 +8,7 @@ class FormsController < ApplicationController
 
   # GET /forms/1 or /forms/1.json
   def show
+    @form = Form.find(params[:id])
   end
 
   # GET /forms/new
@@ -17,11 +18,6 @@ class FormsController < ApplicationController
 
   # GET /forms/1/edit
   def edit
-  end
-
-
-  def form_submission
-    @form_data = params
   end
 
   def store_labels
@@ -69,5 +65,5 @@ class FormsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def form_params
       params.require(:form).permit(:title, :data, :user_id)
-    end
+    end   
 end
