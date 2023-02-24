@@ -8,6 +8,8 @@ class FormsController < ApplicationController
 
   # GET /forms/1 or /forms/1.json
   def show
+    Rails.logger.info("showing response")
+    Rails.logger.info(params)
     @form = Form.find(params[:id])
   end
 
@@ -18,6 +20,15 @@ class FormsController < ApplicationController
 
   # GET /forms/1/edit
   def edit
+  end
+
+  def show_response
+    Rails.logger.info("showing response")
+    Rails.logger.info(params)
+    @res = Form.find(params[:id])
+    if @res
+      @form = Form.show
+    end
   end
 
   def store_labels

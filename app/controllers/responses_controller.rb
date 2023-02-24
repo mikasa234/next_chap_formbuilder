@@ -27,15 +27,12 @@ class ResponsesController < ApplicationController
       result_hash[label] = params[label]
       params.delete(label)
     end
-    data_json = result_hash.to_json
 
     param_new_hash = {}
+    #@ankita: hardcoded user_id for now for simplicity
     param_new_hash['user_id'] = 2
     param_new_hash['data'] = result_hash
     param_new_hash['title'] = session[:title]
-
-    Rails.logger.info("saving response")
-    Rails.logger.info(param_new_hash)
 
     @form = Form.create(param_new_hash)
     if @form.save
