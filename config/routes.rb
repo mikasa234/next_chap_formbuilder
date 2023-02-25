@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   root "forms#index"
   post '/forms/store_labels', to: 'forms#store_labels'
   post '/fields/show_labels', to: 'fields#show_labels'
+  # get  '/forms/:id/edit' to: 'forms#edit'
+  patch '/forms/:id', to: 'forms#update'
 
 end

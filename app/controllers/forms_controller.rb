@@ -17,13 +17,13 @@ class FormsController < ApplicationController
   end
 
   # GET /forms/1/edit
-  def edit
-    Rails.logger.info("in edit")
+  def edit  
     @form = Form.find(params[:id])
+    
+    
   end
 
   def show_response
-    Rails.logger.info("showing response")
     Rails.logger.info(params)
     @res = Form.find(params[:id])
     if @res
@@ -46,8 +46,6 @@ class FormsController < ApplicationController
 
   # PATCH/PUT /forms/1 or /forms/1.json
   def update
-    Rails.logger.info("in update")
-
     @form = Form.find(params[:id])
     form_update_data = {}
     params[:form].each do |key, value|

@@ -6,7 +6,6 @@
     max-height: 100%;
   }
 </style>
-
 <h1>Edit form</h1>
 <div class="form-group">
 <table style="border: 1px solid black;">
@@ -17,8 +16,7 @@
     </tr>
   </thead>
   <tbody>
-  
-    <%= form_for @form,  url: form_path(@form), method: :patch do |f| %>
+    <%= form_for(@form, url: form_path(@form), method: :patch) do |f| %>
       <% @form.data.each do |key, value| %>
         <tr>
             <td>
@@ -42,3 +40,11 @@
  <div>    
 <%= link_to "Back to forms", forms_path %>
 </div>
+
+<%= content_for :scripts do %>
+  <script>
+    window.onload = function() {
+      window.location.reload();
+    };
+  </script>
+<% end %>

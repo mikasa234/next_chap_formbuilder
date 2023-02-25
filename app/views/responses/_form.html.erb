@@ -7,7 +7,7 @@
   </tr>
   </thead>
 <tbody>
-<%= form_for @response do |f| %>
+<%= form_for @response, method: :post do |f| %>
 <tr>
    <% session[:label_values].each do |label| %>
    <td>
